@@ -13,6 +13,7 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["coolify-testing/coolify-testing.csproj", "coolify-testing/"]
+COPY ["coolify-testing.ServiceDefaults/coolify-testing.ServiceDefaults.csproj", "coolify-testing.ServiceDefaults/"]
 RUN dotnet restore "./coolify-testing/coolify-testing.csproj"
 COPY . .
 WORKDIR "/src/coolify-testing"

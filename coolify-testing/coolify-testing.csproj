@@ -7,10 +7,11 @@
     <RootNamespace>coolify_testing</RootNamespace>
     <UserSecretsId>3897e9e9-6782-43ba-8b72-892381b106ba</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="docker-compose.yml" />
+    <None Remove="Dockerfile" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,9 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="docker-compose.yml">
+    <Content Include="Dockerfile">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </Content>
   </ItemGroup>
 
 </Project>

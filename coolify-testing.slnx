@@ -2,4 +2,7 @@
   <Project Path="coolify-testing.AppHost/coolify-testing.AppHost.csproj" />
   <Project Path="coolify-testing.ServiceDefaults/coolify-testing.ServiceDefaults.csproj" />
   <Project Path="coolify-testing/coolify-testing.csproj" />
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
 </Solution>

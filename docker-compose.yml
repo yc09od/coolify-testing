@@ -2,22 +2,32 @@ version: '3.8'
 
 services:
   coolify-testing:
+    image: ${DOCKER_REGISTRY-}coolifytesting
+    container_name: coolify-testing
     build:
       context: .
-      dockerfile: ./coolify-testing/Dockerfile
+      dockerfile: coolify-testing/Dockerfile
       target: final
-    container_name: coolify-testing
+      args:
+        BUILD_CONFIGURATION: Release
     ports:
-      - "8084:8080"
-      - "8085:8081"
+      - "8083:8080"
+      - "8084:8081"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-      - ASPNETCORE_HTTP_PORT=8084
-      - ASPNETCORE_HTTPS_PORT=8085
+      - ASPNETCORE_HTTP_PORT=8080
+      - ASPNETCORE_HTTPS_PORT=8081
     restart: unless-stopped
     networks:
       - coolify-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
 networks:
   coolify-network:
     driver: bridge
+    name: coolify-network
