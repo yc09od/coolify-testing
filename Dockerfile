@@ -21,6 +21,12 @@ COPY . .
 # Next.js collects anonymous telemetry data — disable it
 ENV NEXT_TELEMETRY_DISABLED=1
 
+# Build-time args for NEXT_PUBLIC_* variables
+ARG NEXT_PUBLIC_TEST_TITLE
+ARG NEXT_PUBLIC_TEST_DES
+ENV NEXT_PUBLIC_TEST_TITLE=$NEXT_PUBLIC_TEST_TITLE
+ENV NEXT_PUBLIC_TEST_DES=$NEXT_PUBLIC_TEST_DES
+
 RUN \
   if [ -f yarn.lock ]; then yarn build; \
   elif [ -f package-lock.json ]; then npm run build; \
