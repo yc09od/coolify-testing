@@ -1,6 +1,7 @@
 {
   "family": "coolify-test",
   "executionRoleArn": "arn:aws:iam::843290882290:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::843290882290:role/ecsTaskRole",
   "networkMode": "awsvpc",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "256",
@@ -24,7 +25,7 @@
           "appProtocol": "http"
         }
       ],
-"environment": [],
+      "environment": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
