@@ -24,14 +24,7 @@
           "appProtocol": "http"
         }
       ],
-      "healthCheck": {
-        "command": ["CMD-SHELL", "wget --spider -q http://localhost:3000/ || exit 1"],
-        "interval": 30,
-        "timeout": 5,
-        "retries": 3,
-        "startPeriod": 60
-      },
-      "environment": [],
+"environment": [],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
