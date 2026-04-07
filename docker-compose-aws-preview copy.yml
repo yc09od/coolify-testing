@@ -4,13 +4,17 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        - NEXT_PUBLIC_TEST_TITLE=aws docker compose preview title 123
-        - NEXT_PUBLIC_TEST_DES=aws docker compose preview description 123
+        - NEXT_PUBLIC_TEST_TITLE=${NEXT_PUBLIC_TEST_TITLE}
+        - NEXT_PUBLIC_TEST_DES=${NEXT_PUBLIC_TEST_DES}
     ports:
       - "${PORT:-3000}:${PORT:-3000}"
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - PORT=${PORT:-3000}
+      - NEXT_PUBLIC_TEST_TITLE=aws docker compose preview title
+      - NEXT_PUBLIC_TEST_DES=aws docker compose preview description
     expose:
       - "${PORT:-3000}"
     healthcheck:
